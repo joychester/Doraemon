@@ -59,7 +59,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/?unified=1</stringProp>
+          <stringProp name="HTTPSampler.path">${url}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -68,7 +68,6 @@
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">${url}</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -89,10 +88,6 @@
                 <stringProp name="Header.name">X-Requested-With</stringProp>
                 <stringProp name="Header.value">XMLHttpRequest</stringProp>
               </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer mz8cFkQxxdSBklXV1abYi22hOFsa</stringProp>
-              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -107,9 +102,7 @@
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
             <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="script">//import org.apache.jmeter.util.JMeterUtils;
-
-long wait = 0;
+            <stringProp name="script">long wait = 0;
 long c_ts = Long.parseLong(vars.get(&quot;ts&quot;)); //ts in each log line
 long first_sample_ts = Long.parseLong(props.get(&quot;FirstSampleTS&quot;));
 long test_plan_start_time = Long.parseLong(props.get(&quot;TESTSTART.MS&quot;));// Test Plan Test Start time
